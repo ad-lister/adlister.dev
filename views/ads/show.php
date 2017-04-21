@@ -20,7 +20,7 @@
 					<p><i style="margin-right: 0.5em" class="fa fa-user" aria-hidden="true"></i><?= $user->username ?></p>
 
 				<h4><strong>Email:</strong></h4>
-					<p><i style="margin-right: 0.5em" class="fa fa-envelope" aria-hidden="true"></i><?= $user->email ?></p>
+					<p><i style="margin-right: 0.5em" class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:<?= $user->email ?>"><?= $user->email ?></a></p>
 
 				<h4><strong>Phone:</strong></h4>
 					<p><i style="margin-right: 0.5em" class="fa fa-phone" aria-hidden="true"></i>(XXX) XXX-XXXX</p>
