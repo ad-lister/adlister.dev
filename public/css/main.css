@@ -112,6 +112,10 @@ footer {
 	font-size: 1.5em;
 }
 
+.row {
+	margin-right:0px;
+	margin-left:0px;
+}
 
 /*************** TABLET STYLES ****************/
 @media (min-width: 768px) {

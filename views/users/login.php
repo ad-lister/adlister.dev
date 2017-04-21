@@ -29,12 +29,8 @@
 					</div>
 
 					<div class="row">
-						<div class="col-sm-6 ">
 							<a href="/signup" class="btn btn-primary">Go To Signup</a>
-						</div>
-						<div class="col-sm-6 text-right">
-							<button type="submit" class="btn btn-success">Login</button>
-						</div>
+							<button type="submit" class="btn btn-success pull-right">Login</button>
 					</div>
 				</form>
 			</div>
