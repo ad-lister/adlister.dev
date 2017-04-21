@@ -17,13 +17,13 @@
 				<h3><strong>Posted By <?= $user->name ?></strong></h3>
 
 				<h4><strong>Username:</strong></h4>
-					<p><?= $user->username ?></p>
+					<p><i style="margin-right: 0.5em" class="fa fa-user" aria-hidden="true"></i><?= $user->username ?></p>
 
 				<h4><strong>Email:</strong></h4>
-					<p><?= $user->email ?></p>
+					<p><i style="margin-right: 0.5em" class="fa fa-envelope" aria-hidden="true"></i><?= $user->email ?></p>
 
 				<h4><strong>Phone:</strong></h4>
-					<p>(XXX) XXX-XXXX</p>
+					<p><i style="margin-right: 0.5em" class="fa fa-phone" aria-hidden="true"></i>(XXX) XXX-XXXX</p>
 
 				<h4><strong>Full Description:</strong></h4>
 					<p><?= $showItem->description ?></p>
