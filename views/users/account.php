@@ -1,6 +1,6 @@
 <!--Page for user account home-->
 <div class="text-center" id="userInfo">
-	<h2>User Info</h2>
+	<h2>Your Account Info</h2>
 		<p><strong>Full Name:</strong> <?= Auth::user()->name ?></p>
 		<p><strong>Username:</strong> <?= Auth::user()->username ?></p>
 		<p><strong>Email:</strong> <?= Auth::user()->email ?></p>
