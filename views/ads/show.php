@@ -1,7 +1,7 @@
 <!--Page for single advertisement -->
 <div class="container">
 	<div class="row">
-		<div class="col-sm-4">
+		<div <?php if (Auth::id() == $showItem->user_id): ?> id="showAuthImage"<?php endif; ?> class="col-sm-6">
 			<div class="panel panel-primary">
 					<div class="panel-heading" id="itemsPanelColor"><?= $showItem->title ?><div class="pull-right"><?= "$" . $showItem->price ?></div></div>
 					<div class="panel-body"><img src=<?= "$showItem->image" ?> class="img-responsive" id="showItemImage" alt="Image"></div>
@@ -12,12 +12,12 @@
 				<a id="showAuthButtons" class="btn btn-primary pull-right" href="" data-toggle="modal" data-target="#deleteAd">Delete Ad</a>
 			<?php endif; ?>
 		</div>
-		<div id="showUserInfo" class="col-sm-4">
+		<div <?php if (Auth::id() == $showItem->user_id): ?> style="display: none"<?php endif; ?> id="showUserInfo" class="col-sm-6">
 			<?php if (Auth::id() != $showItem->user_id): ?>
-				<h3><strong>Posted By <?= $user->name ?></strong></h3>
+				<h3><strong>Posted By <?= $user->username ?></strong></h3>
 
-				<h4><strong>Username:</strong></h4>
-					<p><i style="margin-right: 0.5em" class="fa fa-user" aria-hidden="true"></i><?= $user->username ?></p>
+				<h4><strong>Full Name:</strong></h4>
+					<p><i style="margin-right: 0.5em" class="fa fa-user" aria-hidden="true"></i><?= $user->name ?></p>
 
 				<h4><strong>Email:</strong></h4>
 					<p><i style="margin-right: 0.5em" class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:<?= $user->email ?>"><?= $user->email ?></a></p>
@@ -25,15 +25,37 @@
 				<h4><strong>Phone:</strong></h4>
 					<p><i style="margin-right: 0.5em" class="fa fa-phone" aria-hidden="true"></i>(XXX) XXX-XXXX</p>
 
-				<h4><strong>Full Description:</strong></h4>
-					<p><?= $showItem->description ?></p>
-
-				<!-- <p style="font-size: 1.5em"><strong>Other Ads By <?= $user->name ?>:</strong></p>
-					<p></p> -->
 			<?php endif; ?>
 		</div>
 	</div><!-- ends row -->
 </div><!-- ends container -->
+
+
+<!-- shows other ads certain user has posted -->
+<div class="container">
+	<?php if(count($otherAds) > 1):?> <!-- if user has posted only one ad, don't show 'Other Ads' -->
+		<?php if (Auth::id() == $showItem->user_id) : ?> <!-- if you're logged in and it's your post, then it will read 'Other Ads Posted By You' -->
+			<h2 style="font-size: 1.5em" class="text-center"><strong>Other Ads Posted By You</strong></h2>
+		<?php else : ?> <!-- else it'll read 'Other Ads Posted By (username)' -->
+			<h2 style="font-size: 1.5em" class="text-center"><strong>Other Ads Posted By <?= $user->username ?></strong></h2>
+		<?php endif?>
+	<?php endif;?>
+	<div class="row" id="itemsPage">
+		<?php foreach($otherAds as $otherAd) : ?>
+			<?php if ($showItem->id != $otherAd->id) : ?> <!-- to show other ads by user, different from the one already shown on main show page -->
+				<div class="col-sm-4">
+					<a href="/show?id=<?= $otherAd->id ?>" id="items">
+						<div class="panel panel-primary" >
+							<div class="panel-heading" id="itemsPanelColor"><?= $otherAd->title ?><div class="pull-right"><?= "$" . $otherAd->price ?></div></div>
+							<div class="panel-body"><img src=<?= "$otherAd->image" ?> class="img-responsive" id="itemsImages" alt="Image"></div>
+							<div class="panel-footer"><?= substr($otherAd->description, 0, 25) . "..." ?></div>
+						</div>
+					</a>
+				</div>
+			<?php endif?>
+		<?php endforeach; ?>
+	</div>
+</div>
 
 
 	<!-- Deleting Ad Modal -->
@@ -92,7 +114,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Edit Ad</h4>
+					<h4 class="modal-title">Editing Ad</h4>
 				</div>
 				<div class="modal-body">
 					<form  method="POST">
