@@ -88,6 +88,7 @@ function pageController()
 			$ad = Ads::find(Input::get('id'));
 			$data['showItem'] = $ad;
 			$data['user'] = user::find($ad->user_id);
+			$data['otherAds'] = Ads::userPosts($ad->user_id);
 			$mainView = '../views/ads/show.php';
 			break;
 		case "/update":
