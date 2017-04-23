@@ -3,7 +3,11 @@
 	<section id="welcome">
 		<div class="row">
 			<div class="col-xs-12">
+			<?php if (Auth::check()) :?>
+				<h1 id="homeTitle" class="text-center">Welcome Back, <?=Auth::user()->name?></h1>
+			<?php else:?>
 				<h1 id="homeTitle" class="text-center">Welcome To SnapList</h1>
+			<?php endif;?>
 			</div>
 		</div>
 	</section>
