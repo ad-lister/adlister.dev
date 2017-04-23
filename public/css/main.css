@@ -1,16 +1,21 @@
 /*************** MOBILE STYLES ****************/
 #logo {
-	height: 2.5em; 
-	width: 2.5em; 
-	float: left; 
-	margin-right: 1em; 
-	margin-top: 0.5em;
+    height: 3.5em;
+    width: 3.5em;
+    float: left;
+    margin: 0.75em;
+    margin-right: 0em;
 }
 
 #snapListName {
 	font-family: 'Anton', sans-serif; 
-	font-size: 2em;
+	font-size: 3.5em;
+	margin-top: .3em;
 	color: black;
+}
+
+.navbar-toggle {
+    margin-top: 20px;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -77,7 +82,7 @@
 }
 
 #showUserInfo {
-	margin-bottom: 20%;
+	margin-bottom: 10%;
 }
 
 #showAuthButtons {
@@ -96,7 +101,7 @@ footer {
 }
 
 #pageButtons {
-	margin-left: 43%;
+	margin-left: 28%;
 	display: inline-flex;
 }
 
@@ -115,6 +120,23 @@ footer {
 .row {
 	margin-right:0px;
 	margin-left:0px;
+}
+
+#indexMainView {
+	margin-top: 25%
+}
+
+#homeTitle {
+	font-size: 4em;
+}
+
+.container {
+	padding-right:0px;
+	padding-left:0px;
+}
+
+.navbar .pull-right {
+	float: none!important;
 }
 
 /*************** TABLET STYLES ****************/
@@ -151,12 +173,61 @@ footer {
 		width: 80%;
 	}
 
-	#homeItemImage, #showItemImage, #itemsImages {
+	#homeItemImage, #itemsImages {
 		height: 20em;
+	}
+	#showItemImage {
+		height: 30em;
 	}
 
 	#homeViewAll {
 		width: 10%;
+	}
+
+	#showUserInfo {
+		margin-bottom: 20%;
+		line-height: 3em;
+	}
+
+	#showUserInfo h3 {
+		font-size: 3em;
+	}
+
+	#showUserInfo h4 {
+		font-size: 2em;
+	}
+
+	#showUserInfo p {
+		font-size: 1.2em;
+	}
+
+	#indexMainView {
+		margin-top: 5%
+	}
+
+	#logo {
+		height: 2.5em; 
+		width: 2.5em;
+		margin-right: 1em; 
+	}
+
+	#snapListName {
+		font-size: 2.75em;
+		margin-top: 0.1em;
+	}
+
+	#showAuthImage {
+		margin-left: 24%;
+	}
+
+	#pageButtons {
+		margin-left: 43%;
+		float: left;
+		clear: both;
+	}
+
+	.navbar .pull-right {
+		float: right!important;
 	}
 
 }
