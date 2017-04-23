@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -8,17 +8,17 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<img src="img/uploads/SL.ico" id="logo">
+			<a href="/index"><img src="img/uploads/SL.ico" id="logo"></a>
 			<a class="navbar-brand" href="/index" id="snapListName">SnapList</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav" id="navbar">
 				<li><a href="/index">Home</a></li>
-				<li><a href="/items">Items</a></li>
+				<li><a href="/items">All Items</a></li>
 				<?php if (Auth::check()):?>
-					<li><a href="/account">Account</a></li>
+					<li><a href="/account">Your Account</a></li>
 					<li><a href="/create">Create Ad</a></li>
 					<li><a href="/logout">Logout</a></li>
 				<?php else: ?>
@@ -28,7 +28,7 @@
 			</ul>
 			<form class="navbar-form navbar-right" id="search" method="get" action="/search">
 				<div class="form-group">
-					<input type="text" name="search" class="form-control" placeholder="Search">
+					<input type="text" name="search" class="form-control" placeholder="Search Item" required>
 					<button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
 				</div>
 			</form>
