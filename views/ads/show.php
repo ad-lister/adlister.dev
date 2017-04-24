@@ -1,5 +1,5 @@
 <!--Page for single advertisement -->
-<div class="container">
+<div class="container" id="showItemContainer">
 	<div class="row">
 		<div <?php if (Auth::id() == $showItem->user_id): ?> id="showAuthImage"<?php endif; ?> class="col-sm-6">
 			<div class="panel panel-primary">
