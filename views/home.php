@@ -6,7 +6,7 @@
 			<?php if (Auth::check()) :?>
 				<h1 id="homeTitle" class="text-center">Welcome Back, <?=Auth::user()->name?></h1>
 			<?php else:?>
-				<h1 id="homeTitle" class="text-center">Welcome To SnapList</h1>
+				<h1 id="homeTitle" class="text-center">Welcome To SnapList<span style="padding-left: 10px">!</span></h1>
 			<?php endif;?>
 			</div>
 		</div>
