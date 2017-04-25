@@ -4,7 +4,7 @@ require '../db_connect.php';
 
 require_once __DIR__ . '/../../models/User.php';
 
-$query = 'delete from ads';
+$query = 'delete from users';
 
 $dbc->exec($query);
 

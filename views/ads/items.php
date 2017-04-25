@@ -12,13 +12,13 @@
 			</div>
 		<?php endforeach; ?>
 
-		<form method="GET" id="pageButtons">	
-			<ul class="pagination">
-				<li><a <?php if ($page <= 1): ?>style="color: grey;"<?php endif; ?> href="/items?page=<?=$page-1?>">Previous</a></li>
-				<li><a <?php if ($page >= $lastPage): ?>style="color: grey;"<?php endif; ?> href="/items?page=<?=$page+1?>">Next</a></li>
-			</ul>
-		</form>
-
-
+		<?php if(empty($_GET['search'])):?><!-- this is used to not display the pagination buttons on search results page -->
+			<form method="GET" id="pageButtons">	
+				<ul class="pagination">
+					<li><a <?php if ($page <= 1): ?> style="color: grey;border-color: grey;background-color: white"<?php endif; ?> href="/items?page=<?=$page-1?>">Previous</a></li>
+					<li><a <?php if ($page >= $lastPage): ?> style="color: grey;border-color: grey;background-color: white"<?php endif; ?> href="/items?page=<?=$page+1?>">Next</a></li>
+				</ul>
+			</form>
+		<?php endif; ?>
 	</div>
 </div>

@@ -47,7 +47,7 @@ if(!empty($_POST)) {
  <h2 class="text-center">Create an Ad</h2>
 
 
- <div class="container">
+ <div class="container" id="create">
  	<div class="row">
  		<div class="col-md-4 col-md-offset-4">
  			<form method="post" enctype="multipart/form-data">
@@ -87,9 +87,9 @@ if(!empty($_POST)) {
 
  								<div>
  									<span class="btn-primary btn-file"><span class="fileupload-new"></span>
-									<button class="btn btn-primary pull-right" style="margin-bottom: 50px;" type="submit"><i class="icon-user icon-white"></i> Submit</button>
  									<input type="hidden" name="MAX_FILE_SIZE" value="1024000000" required/>
  									<input type="file" name="image" id="image" required/>
+									<button class="btn btn-primary pull-right" style="margin-bottom: 50px;" type="submit"><i class="icon-user icon-white"></i> Submit</button>
  									</span>
 
  							   </div>
