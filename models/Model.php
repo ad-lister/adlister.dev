@@ -125,7 +125,6 @@ abstract class Model {
         }
 
         $query = "INSERT INTO " . static::$table . " ({$columns}) VALUES ({$valuePlaceholders})";
-
         $stmt = self::$dbc->prepare($query);
 
         foreach ($this->attributes as $column => $value) {
@@ -234,6 +233,62 @@ abstract class Model {
             $instance->attributes = $result;
             return $instance;
         }, $results);
+    }
+
+    public static function selectThree()
+    {
+        self::dbConnect();
+
+        $query = 'SELECT * FROM ' . static::$table . ' order by rand() limit 3';
+
+        $stmt = self::$dbc->prepare($query);
+        $stmt->execute();
+
+        //Store the resultset in a variable named $result
+        $results = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $results;
+    }
+
+    public static function signUp() 
+    {
+        self::dbConnect();
+
+        if($_POST) {
+            $insert = "insert into users (name, email, username, password) values (:name, :email, :username, :password)";
+                $statement = self::$dbc->prepare($insert);
+                $statement->bindValue(':name', Input::get('name'), PDO::PARAM_STR);
+                $statement->bindValue(':email', Input::get('email'), PDO::PARAM_STR);
+                $statement->bindValue(':username', Input::get('username'), PDO::PARAM_STR);
+                $statement->bindValue(':password', password_hash(Input::get('password'), PASSWORD_DEFAULT) , PDO::PARAM_STR);
+                $statement->execute();
+                header("location: /login");
+            }
+    }
+
+    public static function userPosts($id)
+    {
+        // Get connection to the database
+        self::dbConnect();
+
+        //Create select statement using prepared statements
+        $query = 'SELECT * FROM ' . static::$table . ' WHERE user_id = :id';
+
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //Store the resultset in a variable named $result
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $instance = null;
+        // if we have a result, create a new instance
+        if ($result) {
+            $instance = new static;
+            $instance->attributes = $result;
+        }
+
+        // return either the found instance or null
+        return $instance;
     }
 
 }

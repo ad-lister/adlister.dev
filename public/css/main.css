@@ -1,0 +1,381 @@
+/*********************** MOBILE STYLES ***********************/
+h1, h2, h3 {
+	font-family: 'Anton', sans-serif;
+}
+
+footer {
+	font-family: 'Anton', sans-serif;
+	background-color: white;
+}
+
+#logo {
+	height: 3.5em;
+	width: 3.5em;
+	float: left;
+	margin: 0.75em;
+	margin-right: 0em;
+}
+
+#snapListName {
+	font-family: 'Anton', sans-serif; 
+	font-size: 3.5em;
+	margin-top: .3em;
+	color: black;
+}
+
+.navbar .pull-right {
+	float: none!important;
+}
+
+.navbar-toggle {
+	margin-top: 20px;
+}
+
+.navbar-default .navbar-nav>li>a {
+	text-align: center;
+}
+
+#navbar>li {
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.navbarIcon {
+	width: 10px;
+}
+
+#navbar>li:nth-child(1) {
+	border-top: 1px solid #e7e7e7;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border: none;
+}
+
+#search .form-control {
+	float: left;
+	width: 86%;
+}
+
+#homeTitle {
+	font-size: 3em;
+}
+
+#homeItemPanel {
+	text-decoration: none;
+	color: black;
+}
+
+#homeItemImage, #showItemImage, #itemsImages {
+	width: 100%;
+	height: 17em;
+}
+
+#homeViewAll {
+	margin: auto;
+	margin-bottom: 20%;
+	display: block;
+	width: 50%;
+}
+
+.btn-primary {
+	background-color: #3139A8;
+	border-color: #3139A8; 
+}
+
+.btn-primary:hover {
+	background-color: #151d77;
+	border-color: #151d77; 
+}
+
+#itemsPage {
+	margin-bottom: 20%;
+}
+
+#itemsPanelColor {
+	background-color: #3139A8;
+}
+
+.panel-primary {
+	border-color: #3139A8;
+}
+
+#items {
+	text-decoration: none;
+	color: black;
+}
+
+#showUserInfo {
+	margin-bottom: 10%;
+}
+
+#showAuthButtons {
+	margin: 5%;
+}
+
+#pageButtons {
+	margin-left: 28%;
+	display: inline-flex;
+}
+
+.pagination>li>a {
+	color: white;
+	border-color: #151d77;
+	background-color: #3139A8;
+}
+
+.pagination>li>a:hover {
+	background-color: #151d77;
+	color: white;
+}
+
+#userInfo {
+	margin-bottom: 10%;
+}
+
+#userInfo h2 {
+	font-size: 2em;
+}
+
+#userInfo p {
+	font-size: 1.25em;
+}
+
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.container {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#indexMainView {
+	margin-top: 25%;
+}
+
+
+/*********************** TABLET STYLES ************************/
+@media (min-width: 768px) {
+
+	#logo {
+		height: 2.5em;
+		width: 2.5em;
+	}
+
+	#snapListName {
+		font-size: 2.5em;
+		margin-top: .1em;
+	}
+
+	#navbar>li {
+		border: none;
+	}
+
+	.navbar>.container-fluid .navbar-brand {
+		margin-left: -10px;
+	}
+
+	#search .form-control {
+		width: 50%;
+	}
+
+	#welcome {
+		margin-left: 7%;
+		margin-right: 7%;
+	}
+
+	#homeTitle {
+		font-size: 5em;
+		margin-bottom: 3%;
+	}
+
+	#homeItemImage, #itemsImages {
+		height: 12em;
+	}
+
+	#homeViewAll {
+		width: 25%;
+	}
+
+	#itemsPage {
+		margin-bottom: 0%;
+	}
+
+	#pageButtons {
+		margin-left: 40%;
+		display: inline-flex;
+	}
+
+	#showItemContainer {
+		padding: 4%;
+		margin-left: 5%;
+	}
+
+	#showItemImage {
+		height: 15em;
+	}
+
+	.panel-heading {
+		padding: 1%;
+	}
+
+	.panel-footer {
+		padding: 1%;
+	}
+
+	#showAuthImage {
+		margin-left: 20%;
+	}
+
+	#userInfo {
+		margin-bottom: 5%;
+	}
+
+	#login, #create {
+		padding-right: 8em;
+		padding-left: 8em;
+	}
+
+	#indexMainView {
+		margin-top: 12%;
+	}
+
+}
+
+
+
+/************************ DESKTOP STYLES ************************/
+/****** 940px ******/
+@media (min-width:940px) {
+
+	#logo {
+		height: 2.5em; 
+		width: 2.5em;
+		margin-right: 1em; 
+	}
+
+	#snapListName {
+		font-size: 2.75em;
+		margin-top: 0.1em;
+	}
+
+	.navbar .pull-right {
+		float: right!important;
+	}
+
+	#search .form-control {
+		width: 80%;
+	}
+
+	#homeItemImage, #itemsImages {
+		height: 20em;
+	}
+
+	#homeViewAll {
+		width: 15%;
+		margin-bottom: 0%;
+		margin-top: 1%;
+	}
+
+	#itemsPage {
+		margin-top: 3%;
+	}
+
+	#pageButtons {
+		margin-left: 44%;
+		margin-bottom: 5%;
+		float: left;
+		clear: both;
+	}
+
+	#showItemImage {
+		height: 25em;
+	}
+
+	#showUserInfo {
+		margin-bottom: 20%;
+		line-height: 3em;
+	}
+
+	#showUserInfo h3 {
+		font-size: 3em;
+	}
+
+	#showUserInfo h4 {
+		font-size: 2em;
+	}
+
+	#showUserInfo p {
+		font-size: 1.2em;
+	}
+
+	#showAuthImage {
+		margin-left: 24%;
+	}
+
+	.panel-heading {
+		padding: 4%;
+	}
+
+	.panel-footer {
+		padding: 4%;
+	}
+
+	#userInfo h2 {
+		font-size: 3em;
+	}
+
+	#userInfo p {
+		font-size: 1.5em;
+	}
+
+	#login, #create {
+		padding-right: 0em;
+		padding-left: 0em;
+	}
+
+	#indexMainView {
+		margin-top: 10%;
+	}
+
+}
+
+
+/****** 1280px ******/
+@media (min-width:1280px) {
+	#indexMainView {
+		margin-top: 5%;
+	}
+}
+
+
+/****** 1680px ******/
+@media (min-width:1680px) {
+
+	#itemsPage {
+		margin-top: 0%
+	}
+
+	#pageButtons {
+		margin-bottom: 0%;
+	}
+
+	#showItemContainer {
+		padding: 0%;
+		margin-left: 17%;
+	}
+
+	#showItemImage {
+		height: 30em;
+	}
+
+	#login {
+		margin-top: 5%;
+	}
+
+	#indexMainView {
+		margin-top: 5%;
+	}
+
+}

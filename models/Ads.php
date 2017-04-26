@@ -48,7 +48,8 @@ class Ads extends Model {
             $ad->location = $row['location'];
             $ad->price = $row['price'];
             $ad->description = $row['description'];
-            $ad->username = $row['username'];
+            $ad->user_id = $row['user_id'];
+            $ad->image = $row['image'];
             array_push($array, $ad);
         }
         return $array;
@@ -97,30 +98,58 @@ class Ads extends Model {
             $ad->location = $row['location'];
             $ad->price = $row['price'];
             $ad->description = $row['description'];
-            $ad->username = $row['username'];
+            $ad->user_id = $row['user_id'];
+            $ad->image = $row['image'];
             array_push($array, $ad);
         }
         return $array;
     }
 
-    public $id;
-    public $title;
-    public $location;
-    public $price;
-    public $description;
-    public $username;
+    public static function search($a)
+    {
+        self::dbConnect();
 
-    public function insertAd($title, $location, $price, $description, $username) {
-        $connection = self::dbConnect();
-        $query = "INSERT INTO national_parks (title, location, price, description, username) VALUES (:title, :location, :date_established, :area_in_acres, :username)";
-        $statement = $connection->prepare($query);
-        $statement->bindValue(':title', $title, PDO::PARAM_STR);
-        $statement->bindValue(':location', $location, PDO::PARAM_STR);
-        $statement->bindValue(':date_established', $price, PDO::PARAM_STR);
-        $statement->bindValue(':area_in_acres', $description, PDO::PARAM_INT);
-        $statement->bindValue(':username', $username, PDO::PARAM_STR);
-        $statement->execute();
-        $id = $db->lastInsertId();
-        return $id;
+        error_reporting(0);
+
+        $query = 'SELECT * FROM ' . static::$table . ' where title like :keyword or description like :keyword ';
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':keyword', "%$a%", PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        //Store the resultset in a variable named $result
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // turn each associative array into an instance of the model subclass
+        return array_map(function($result) {
+            $instance = new static;
+            $instance->attributes = $result;
+            return $instance;
+        }, $results);
     }
+
+    public static function userPosts($id)
+    {
+        // Get connection to the database
+        self::dbConnect();
+
+        //Create select statement using prepared statements
+        $query = 'SELECT * FROM ' . static::$table . ' WHERE user_id = :id';
+
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        //Store the resultset in a variable named $result
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // turn each associative array into an instance of the model subclass
+        return array_map(function($result) {
+            $instance = new static;
+            $instance->attributes = $result;
+            return $instance;
+        }, $results);
+    }
+
 }
